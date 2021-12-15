@@ -1,0 +1,10 @@
+Private Sub fillList()
+        Dim strSQL As String
+        strSQL = "select testID, TestDesc from TestMaster"
+        cmd = New OleDb.OleDbCommand(strSQL, connDB)
+        datrd = cmd.ExecuteReader()
+        lstTest.Items.Clear()
+        While datrd.Read()
+            lstTest.Items.Add(datrd.Item(0).ToString.PadRight(10) & datrd.Item(1))
+        End While
+    End Sub

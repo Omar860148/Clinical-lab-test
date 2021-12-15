@@ -1,0 +1,11 @@
+ 
+Dim strSQL As String
+        strSQL = "Insert into TestMaster values (" & CInt(txtTestID.Text) & ",'" & txtTestDesc.Text & "','" & cboTestCat.Text & "'," & CDbl(txtCharges.Text) & ",'" & txtTestNV.Text & "'" & ")"
+        cmd = New OleDb.OleDbCommand(strSQL, connDB)
+        cmd.ExecuteNonQuery()
+        fillList()
+        txtTestID.Text = getNewID("TestMaster", "TestID")
+        txtTestDesc.Clear()
+        txtCharges.Clear()
+        cboTestCat.Text = ""
+        txtTestNV.Clear()

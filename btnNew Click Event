@@ -1,0 +1,1 @@
+txtTestID.Text = getNewID("TestMaster", "TestID")

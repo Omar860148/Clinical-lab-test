@@ -1,0 +1,3 @@
+txtTestID.Text = getNewID("TestMaster", "TestID")’getting new TestID by calling getNewID function defined in module
+ connectdB()’ calling the database connection procedure from module
+ fillList()’ calling the procedure to fill the listbox control with testID and TestName from TestMaster Table

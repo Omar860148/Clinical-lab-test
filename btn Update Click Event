@@ -1,0 +1,12 @@
+Dim strSQL As String
+ strSQL = "update PatientMaster set  pname='" & txtPName.Text & "',paddress='" & txtAddress.Text & "',pemail='" & txtEmail.Text & "', pphone='" & txtPhone.Text & "' where pid=" & CInt(txtPID.Text)
+ cmd = New OleDb.OleDbCommand(strSQL, connDB)
+ cmd.ExecuteNonQuery()
+ fillList()
+ txtPID.Text = getNewID("PatientMaster", "PID")
+ txtPName.Clear()
+ txtAddress.Clear()
+ txtEmail.Clear()
+ txtPhone.Clear()
+ btnSave.Enabled = True
+ btnUpdate.Enabled = False

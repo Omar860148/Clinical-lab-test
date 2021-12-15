@@ -1,0 +1,24 @@
+‘Declare the connection object 
+Public connDB As New OleDb.OleDbConnection
+‘Function to pass a table name and field name for unique ID and get the next ID that can be used while inserting the record
+    Function getNewID(tblName As String, fldName As String) As String
+        Dim strVal, sql As String
+        Dim cmd As OleDb.OleDbCommand
+        connectdB()
+        Sql = "select max(" & fldName & ") from " & tblName
+        cmd = New OleDb.OleDbCommand(sql, connDB)
+        strVal = Convert.ToString(cmd.ExecuteScalar())
+        If strVal = "" Then
+            strVal = "1"
+        Else
+            strVal = Convert.ToString(CInt(strVal) + 1)
+        End If
+        Return strVal
+    End Function
+‘Procedure to connect with the database LabReportDB.accdb Access file) which is stored in the “\bin\Debug” startup project path of the current project
+    Public Sub connectdB()
+        If connDB.State = ConnectionState.Closed Then
+            connDB.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" & Application.StartupPath & "\LabReportDB.accdb"
+            connDB.Open()
+        End If
+    End Sub

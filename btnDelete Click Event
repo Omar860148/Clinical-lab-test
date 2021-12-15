@@ -1,0 +1,10 @@
+Dim strSQL As String
+        strSQL = "delete * from  TestMaster where testid=" & CInt(txtTestID.Text)
+        cmd = New OleDb.OleDbCommand(strSQL, connDB)
+        cmd.ExecuteNonQuery()
+        fillList()
+        txtTestID.Text = getNewID("TestMaster", "TestID")
+        txtTestDesc.Clear()
+        txtCharges.Clear()
+        cboTestCat.Text = ""
+        txtTestNV.Clear()

@@ -1,0 +1,3 @@
+ 
+Dim cmd As OleDb.OleDbCommand
+Dim datrd As OleDb.OleDbDataReader

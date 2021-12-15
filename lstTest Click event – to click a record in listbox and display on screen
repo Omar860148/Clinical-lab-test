@@ -1,0 +1,10 @@
+Dim strSQL As String
+        strSQL = "select * from TestMaster where testID=" & CInt(Mid(lstTest.Items(lstTest.SelectedIndex), 1, 9))
+        cmd = New OleDb.OleDbCommand(strSQL, connDB)
+        datrd = cmd.ExecuteReader()
+        txtTestID.Text = Mid(lstTest.Items(lstTest.SelectedIndex), 1, 9)
+        datrd.Read()
+        txtTestDesc.Text = datrd.Item(1)
+        cboTestCat.Text = datrd.Item(2)
+        txtCharges.Text = Convert.ToString(datrd.Item(3))
+        txtTestNV.Text = datrd.Item(4)

@@ -1,0 +1,4 @@
+txtPID.Text = getNewID("PatientMaster", "PID")
+ connectdB()
+ fillList()
+ txtRegDate.Text = DateAndTime.Today()

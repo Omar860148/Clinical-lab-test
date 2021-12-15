@@ -1,0 +1,10 @@
+  Dim strSQL As String
+        strSQL = "Insert into PatientMaster values (" & CInt(txtPID.Text) & ",'" & txtPName.Text & "','" & txtAddress.Text & "','" & txtEmail.Text & "','" & txtPhone.Text & "',#" & txtRegDate.Text & "#)"
+        cmd = New OleDb.OleDbCommand(strSQL, connDB)
+        cmd.ExecuteNonQuery()
+        fillList()
+        txtPID.Text = getNewID("PatientMaster", "PID")
+        txtPName.Clear()
+        txtAddress.Clear()
+        txtPhone.Text = ""
+        txtEmail.Clear()

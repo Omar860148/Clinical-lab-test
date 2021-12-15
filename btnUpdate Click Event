@@ -1,0 +1,10 @@
+Dim strSQL As String
+        strSQL = "update TestMaster set  testDesc='" & txtTestDesc.Text & "',TestCategory='" & cboTestCat.Text & "',testCharges=" & CDbl(txtCharges.Text) & ", NormalVal='" & txtTestNV.Text & "' where testid=" & CInt(txtTestID.Text)
+        cmd = New OleDb.OleDbCommand(strSQL, connDB)
+        cmd.ExecuteNonQuery()
+        fillList()
+        txtTestID.Text = getNewID("TestMaster", "TestID")
+        txtTestDesc.Clear()
+        txtCharges.Clear()
+        cboTestCat.Text = ""
+        txtTestNV.Clear()
